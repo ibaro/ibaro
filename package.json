@@ -1,0 +1,30 @@
+{
+  "name": "ibaro",
+  "version": "0.0.1",
+  "description": "Mini framework for route",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibaro/ibaro.git"
+  },
+  "keywords": [
+    "router",
+    "ibaro",
+    "router",
+    "mini",
+    "router",
+    "tiny",
+    "router",
+    "module",
+    "router"
+  ],
+  "author": "João Ribeiro <jlribeiroaugusto@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibaro/ibaro/issues"
+  },
+  "homepage": "https://github.com/ibaro/ibaro#readme"
+}
