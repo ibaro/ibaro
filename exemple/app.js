@@ -17,4 +17,8 @@ app.get('/', (req, res) => {
     .send('<h1>Ibaro Router</h1>')
 })
 
+app.get('/contact', (req, res) => {
+  res.redirect('/')
+})
+
 app.listen(3000, () => console.log('running on port 3000'))
