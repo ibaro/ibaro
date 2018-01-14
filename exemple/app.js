@@ -1,24 +1,14 @@
 const Ibaro = require('../lib/Ibaro')
+const path = require('path')
+
 const app = new Ibaro()
 
-app.use((req, res, next) => {
-  console.log('some think')
-  next()
-})
-
-app.use((req, res, next) => {
-  console.log('some think Two')
-  next()
-})
+app.set('static', path.join(__dirname, 'public'))
+app.set('views', path.join(__dirname, 'views'))
+app.set('minify', true)
 
 app.get('/', (req, res) => {
-  res
-    .status(200)
-    .send('<h1>Ibaro Router</h1>')
-})
-
-app.get('/contact', (req, res) => {
-  res.redirect('/')
+  res.render('index', {hello: 'Hello, ã!'})
 })
 
 app.listen(3000, () => console.log('running on port 3000'))

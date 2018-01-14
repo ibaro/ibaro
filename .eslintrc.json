@@ -1,3 +1,7 @@
 {
-    "extends": "standard"
+    "extends": "standard",
+    "globals": {
+        "__dirname": true,
+        "path": true
+    }
 }
