@@ -11,11 +11,15 @@ app.get('/', (req, res) => {
   res.render('index', {hello: 'Hello, ã!'})
 })
 
-app.get('/some', (req, res) => {
+app.get('/news/:news', (req, res) => {
+  res.render('/news/' + req.param.news, {title: 'NEWS DINAMIC'})
+})
+
+app.get('/other/:idin/noai/:ibarex', (req, res) => {
   res.json({param: 'req.param.id'})
 })
 
-app.post('/message', (req, res) => {
+app.get('/message/other', (req, res) => {
   res.send('ok', 'html')
 })
 
