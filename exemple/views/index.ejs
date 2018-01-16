@@ -7,7 +7,16 @@
 </head>
 <body>
   <h1><%= hello %></h1>
-  <img src="/image/2.png" alt="">
+  <img src="/image/2.png" alt="" width="300">
+  <video src="/video/video-test.mp4" controls width="300"></video>
+  <a href="./contact">contact</a>
+
+  <form action="/message" method="post">
+    <input type="text" name="name">
+    <input type="text" name="email">
+    <input type="text" name="senha">
+    <input type="submit">
+  </form>
 
   <script src="/js/main.js"></script>
 </body>
