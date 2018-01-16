@@ -12,15 +12,23 @@ app.get('/', (req, res) => {
 })
 
 app.get('/news/:news', (req, res) => {
-  res.render('/news/' + req.param.news, {title: 'NEWS DINAMIC'})
+  console.log(req.param.news)
+  res.render(`/news/${req.param.news}`, {title: 'NEWS DINAMIC'})
 })
 
-app.get('/other/:idin/noai/:ibarex', (req, res) => {
-  res.json({param: 'req.param.id'})
-})
+app.post('/message', (req, res) => {
+  let body = []
+  let querystring = require('querystring')
 
-app.get('/message/other', (req, res) => {
-  res.send('ok', 'html')
+  req.on('data', chunk => {
+  	body.push(chunk)
+    body = querystring.parse(decodeURIComponent(Buffer.concat(body).toString()))
+  })
+
+  req.on('end', _ => {
+  	console.log(req.headers)
+  	res.redirect('/')
+  })
 })
 
 app.listen(3000, () => console.log('running on port 3000'))

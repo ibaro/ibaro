@@ -1,1 +1,1 @@
-window.console.log('ola mundo')
+window.console.log(location.pathname)
