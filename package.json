@@ -11,8 +11,8 @@
     "url": "git+https://github.com/ibaro/ibaro.git"
   },
   "files": [
-  	"lib",
-  	"index"
+    "lib",
+    "index"
   ],
   "keywords": [
     "router",

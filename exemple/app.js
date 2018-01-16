@@ -21,13 +21,13 @@ app.post('/message', (req, res) => {
   let querystring = require('querystring')
 
   req.on('data', chunk => {
-  	body.push(chunk)
+    body.push(chunk)
     body = querystring.parse(decodeURIComponent(Buffer.concat(body).toString()))
   })
 
   req.on('end', _ => {
-  	console.log(req.headers)
-  	res.redirect('/')
+    console.log(req.headers)
+    res.redirect('/')
   })
 })
 
