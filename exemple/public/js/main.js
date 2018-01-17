@@ -1,1 +1,1 @@
-window.console.log(location.pathname)
+window.console.log(window.location.pathname)
