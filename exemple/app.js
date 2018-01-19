@@ -1,33 +1,40 @@
 const path = require('path')
 const Ibaro = require('../lib/Ibaro')
+const fs = require('fs')
 
 // Instance of the class
 const app = new Ibaro()
-
-app.listen(3000, () => console.log('\x1b[32m', 'RUNNING ON PORT 3000'))
 
 app.set('static', path.join(__dirname, 'public'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('minify', true)
 
-app.use((req, res, next) => {
-  console.log('oi de tudo')
-  next()
+// serve favicon
+app.use(Ibaro.favicon(path.join(__dirname, 'favicon')))
+
+
+app.get('/', (req, res) => {
+  res.render('index', {hello: 'Hello, ã!'})
 })
 
-function mid (req, res) {
-  console.log('ois')
-}
+app.get('/about', (req, res) => {
+  res.json(req.query)
+})
 
-
-app.get('/', mid, (req, res) => {
-  res.render('index', {hello: 'Hello, ã!'})
+app.get('/user/:id', (req, res) => {
+  res.json(req.param)
 })
 
 app.get('/news/:news', (req, res) => {
   res.render(`/news/${req.param.news}`, {title: 'NEWS DINAMIC'})
 })
 
+app.get('/news', (req, res) => {
+  res.send('just a test')
+})
+
 app.post('/message',  (req, res) => {
   app.body((err, data) => res.json(data))
 })
+
+app.listen(3000, () => console.log('\x1b[32m', 'RUNNING ON PORT 3000'))
