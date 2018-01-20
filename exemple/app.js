@@ -12,7 +12,6 @@ app.set('minify', true)
 // serve favicon
 app.use(Ibaro.favicon(path.join(__dirname, 'favicon')))
 
-
 app.get('/', (req, res) => {
   res.render('index', {hello: 'Hello, ã!'})
 })
@@ -30,11 +29,14 @@ app.get('/news/:news', (req, res) => {
 })
 
 app.get('/news', (req, res) => {
-  res.send('just a test')
+  res.json({hello: 'just a test'})
 })
 
-app.post('/message',  (req, res) => {
-  app.body((err, data) => res.json(data))
+app.post('/message', (req, res) => {
+  app.body((err, data) => {
+    if (err) throw err
+    res.json(data)
+  })
 })
 
 app.listen(3000, () => console.log('\x1b[32m', 'RUNNING ON PORT 3000'))
