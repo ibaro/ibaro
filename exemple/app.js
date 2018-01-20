@@ -1,6 +1,5 @@
 const path = require('path')
 const Ibaro = require('../lib/Ibaro')
-const fs = require('fs')
 
 // Instance of the class
 const app = new Ibaro()
@@ -17,7 +16,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.json(req.query)
+  if (req.query) {
+    res.json(req.query)
+    return false
+  }
+  res.send('<h1>Hello about</h1>', 'html')
 })
 
 app.get('/user/:id', (req, res) => {
