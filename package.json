@@ -12,7 +12,6 @@
   },
   "files": [
     "lib",
-    "lib/body",
     "index.js"
   ],
   "keywords": [
@@ -51,6 +50,7 @@
     "continuable-cache": "^0.3.1",
     "ejs": "^2.5.7",
     "error": "^7.0.2",
+    "html-minifier": "^3.5.8",
     "mime-types": "^2.1.17",
     "raw-body": "^2.3.2",
     "safe-json-parse": "^4.0.0"

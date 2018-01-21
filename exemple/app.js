@@ -8,9 +8,13 @@ app.set('static', path.join(__dirname, 'public'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('minify', true)
 
+// serve page not found it's necessery be a middleware for now
+app.use(app.notFound('404'))
+
 // serve favicon
 app.use(Ibaro.favicon(path.join(__dirname, 'favicon')))
 
+// routes
 app.get('/', (req, res) => {
   res.render('index', {hello: 'Hello, ã!'})
 })
@@ -20,7 +24,7 @@ app.get('/about', (req, res) => {
     res.json(req.query)
     return false
   }
-  res.send('<h1>Hello about</h1>', 'html')
+  res.send('<h1>Hello from about</h1>', 'html')
 })
 
 app.get('/user/:id', (req, res) => {
@@ -32,7 +36,7 @@ app.get('/news/:news', (req, res) => {
 })
 
 app.get('/news', (req, res) => {
-  res.json({hello: 'just a test'})
+  res.send('<h1>Hello from news</h1>', 'html')
 })
 
 app.post('/message', (req, res) => {
@@ -42,4 +46,5 @@ app.post('/message', (req, res) => {
   })
 })
 
+// server listening
 app.listen(3000, () => console.log('\x1b[32m', 'RUNNING ON PORT 3000'))
