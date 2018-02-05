@@ -4,6 +4,12 @@ const Ibaro = require('../lib/Ibaro')
 // Instance of the class
 const app = new Ibaro()
 
+Ibaro.infoDisk.pretty('/dev/sda1', (err, data) => {
+  if (err) throw err
+
+  console.log(data)
+})
+
 app.set('static', path.join(__dirname, 'public'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('minify', true)
